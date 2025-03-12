@@ -23,5 +23,5 @@ runs:
       shell: sh
       run: |
         apk add --no-cache git
-        git clone https://${{ inputs.org-name }}:${{ inputs.access-token }}@dev.azure.com/${{ inputs.org-name }}/${{ inputs.project-name }}/_git/${{ inputs.repo-name }}
+        git clone https://${{ inputs.org-name }}:${{ inputs.access-token }}@dev.azure.com/${{ inputs.org-name }}/${{ inputs.project-name }}/_git/${{ inputs.repo-name }} .
         
