@@ -44,8 +44,6 @@ In your YAML file, add:
           org-name: ${{ vars.ORG_NAME }}
           repo-name: ${{ vars.REPO_NAME }}
           access-token: ${{ secrets.AZDO_PAT }}
-          image-location: "test-example.jfrog.io/local/alpine"
-          image-tag: "latest"
 
 ----
 
