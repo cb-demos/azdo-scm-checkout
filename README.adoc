@@ -19,6 +19,11 @@ Use this action to checkout your source code from Azure DevOps.
 | Yes
 | The AZDO Organization name
 
+| `project-name`
+| String
+| Yes
+| The AZDO Project name
+
 | `repo-name`
 | String
 | Yes
@@ -42,6 +47,7 @@ In your YAML file, add:
         uses: cb-demos/azdo-scm-checkout@v1
         with:
           org-name: ${{ vars.ORG_NAME }}
+          project-name: ${{ vars.PROJECT_NAME }}
           repo-name: ${{ vars.REPO_NAME }}
           access-token: ${{ secrets.AZDO_PAT }}
 
