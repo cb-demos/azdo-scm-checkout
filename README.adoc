@@ -1,0 +1,60 @@
+= CloudBees action: Azure DevOps SCM Checkout
+
+
+Use this action to checkout your source code from Azure DevOps.
+
+== Inputs
+
+[cols="2a,1a,1a,3a",options="header"]
+.Input details
+|===
+
+| Input name
+| Data type
+| Required?
+| Description
+
+| `org-name`
+| String
+| Yes
+| The AZDO Organization name
+
+| `repo-name`
+| String
+| Yes
+| The name of the git repo
+
+| `access-token`
+| String
+| Yes
+| the AZDO personal access token
+
+|===
+
+== Usage example
+
+In your YAML file, add:
+
+[source,yaml]
+----
+
+      - name: Checkout AZDO Repo 
+        uses: cb-demos/azdo-scm-checkout@v1
+        with:
+          org-name: ${{ vars.ORG_NAME }}
+          repo-name: ${{ vars.REPO_NAME }}
+          access-token: ${{ secrets.AZDO_PAT }}
+          image-location: "test-example.jfrog.io/local/alpine"
+          image-tag: "latest"
+
+----
+
+== License
+
+This code is made available under the 
+link:https://opensource.org/license/mit/[MIT license].
+
+== References
+
+* Learn more about link:https://docs.cloudbees.com/docs/cloudbees-saas-platform-actions/latest/[using actions in CloudBees workflows].
+* Learn about link:https://docs.cloudbees.com/docs/cloudbees-saas-platform/latest/[the CloudBees platform].

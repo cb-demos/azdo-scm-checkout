@@ -1,0 +1,24 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: action
+name: azure devops scm checkout
+inputs:
+  org-name:
+    description: 'organization name'
+    required: true
+  repo-name:
+    description: 'repo name'
+    required: true
+  access-token:
+    description: 'azdo personal access token'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout Repository
+      uses: docker://alpine:latest
+      shell: sh
+      run: |
+        apk add --no-cache git
+        git clone https://${{ inputs.org-name }}:${{ inputs.access-token }}@dev.azure.com/${{ inputs.org-name }}/azuredevops/_git/${{ inputs.repo-name }}
+        
